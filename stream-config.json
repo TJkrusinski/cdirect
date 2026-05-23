@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "storage": {
+    "type": "local",
+    "root": "streams"
+  },
+  "ffmpeg": {
+    "defaultSegmentDuration": 2
+  },
+  "streams": [
+    {
+      "id": "lens",
+      "name": "lens",
+      "inputKind": "device",
+      "inputPath": "0:1",
+      "inputLabel": "MacBook Pro Camera + MacBook Pro Microphone",
+      "deviceInput": {
+        "platform": "avfoundation",
+        "videoId": "0",
+        "videoName": "MacBook Pro Camera",
+        "audioId": "1",
+        "audioName": "MacBook Pro Microphone"
+      },
+      "outputSubdir": "lens",
+      "manifestName": "manifest.mpd",
+      "segmentDuration": 2,
+      "encoding": {
+        "videoEncoder": "auto",
+        "frameRate": 30,
+        "outputWidth": 1280,
+        "outputHeight": 720,
+        "videoBitrateKbps": 2500,
+        "videoMinrateKbps": 1750,
+        "videoMaxrateKbps": 3000,
+        "videoBufsizeKbps": 6000,
+        "audioBitrateKbps": 128,
+        "x264Preset": "veryfast"
+      },
+      "storageTarget": "local",
+      "createdAt": "2026-05-23T21:06:38.390Z",
+      "updatedAt": "2026-05-23T21:06:38.390Z"
+    }
+  ]
+}

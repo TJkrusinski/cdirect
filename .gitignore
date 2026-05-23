@@ -1,4 +1,7 @@
 /target
 .env
 /chunks
+/streams
+/dist
+/node_modules
 player/node_modules
