@@ -1,0 +1,253 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #101214;
+  color: #f3f0e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(16, 18, 20, 0.8), #101214),
+    radial-gradient(circle at 18% 0%, rgba(55, 111, 117, 0.36), transparent 35%),
+    #101214;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+video {
+  width: min(100%, 1280px);
+  aspect-ratio: 16 / 9;
+  max-height: calc(100vh - 56px);
+  background: #020304;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 0;
+  padding: 24px;
+  background: rgba(19, 22, 24, 0.9);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.brand {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 720;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #d9d4c8;
+}
+
+#status {
+  margin-top: 5px;
+  color: #9fb1ae;
+  font-size: 13px;
+}
+
+.pill {
+  flex: 0 0 auto;
+  border: 1px solid rgba(119, 194, 183, 0.42);
+  color: #9bded0;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 12px;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #bbb6ad;
+  font-size: 12px;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0d0f10;
+  color: #f3f0e8;
+  border-radius: 6px;
+  padding: 10px 11px;
+  min-height: 42px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #79c7bc;
+  box-shadow: 0 0 0 3px rgba(121, 199, 188, 0.14);
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+button {
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: #f3f0e8;
+  color: #111415;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+button[type="button"] {
+  background: #1d2324;
+  color: #f3f0e8;
+}
+
+#local-button {
+  background: #173536;
+  color: #dff7f2;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.metrics div {
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.metrics div + div {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metrics span {
+  font-size: 11px;
+  color: #a7aaa6;
+}
+
+.metrics strong {
+  font-size: 14px;
+}
+
+.queue {
+  display: grid;
+  gap: 9px;
+}
+
+#segment-list {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#segment-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  min-height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 12px;
+}
+
+#segment-list small {
+  color: #9fb1ae;
+}
+
+#log {
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #bac5c1;
+  background: #080909;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .stage {
+    padding: 14px;
+  }
+
+  video {
+    max-height: none;
+  }
+
+  .panel {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: visible;
+  }
+
+  #log {
+    min-height: 160px;
+    max-height: 260px;
+  }
+}

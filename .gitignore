@@ -1,0 +1,4 @@
+/target
+.env
+/chunks
+player/node_modules

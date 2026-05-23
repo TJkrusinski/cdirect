@@ -1,0 +1,40 @@
+inputs:
+  source: "avfoundation"
+  audio:
+    name: "Built-in Microphone"
+    id: "1"
+  video:
+    name: "FaceTime HD Camera"
+    id: "0"
+
+segment:
+  duration_seconds: 2
+  extension: "m4s"
+  prefix: "segments"
+  manifest_name: "manifest.mpd"
+  window_size: 12
+  extra_window_size: 6
+
+encode:
+  video:
+    codec: "libx264"
+    preset: "veryfast"
+    bitrate: "4500k"
+    maxrate: "7000k"
+    bufsize: "14000k"
+    width: 1920
+    height: 1080
+    framerate: 30
+  audio:
+    codec: "aac"
+    bitrate: "160k"
+    sample_rate: 48000
+    channels: 2
+
+s3:
+  bucket: "${ASSET_BUCKET}"
+  prefix: "events/demo2"
+  region: "us-west-2"
+  # Optional for MinIO, LocalStack, or another S3-compatible server.
+  # endpoint_url: "http://127.0.0.1:9000"
+  # force_path_style: true
