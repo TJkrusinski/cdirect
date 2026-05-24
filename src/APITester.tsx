@@ -22,14 +22,14 @@ export function APITester() {
   };
 
   return (
-    <div className="mt-8 mx-auto w-full max-w-2xl text-left flex flex-col gap-4">
+    <div className="mx-auto mt-8 flex w-full max-w-2xl flex-col gap-4 text-left">
       <form
         onSubmit={testEndpoint}
-        className="flex items-center gap-2 bg-[#1a1a1a] p-3 rounded-xl font-mono border-2 border-[#fbf0df] transition-colors duration-300 focus-within:border-[#f3d5a3] w-full"
+        className="flex w-full items-center gap-2 rounded-sm border border-border bg-card p-3 font-mono transition-colors focus-within:border-ring"
       >
         <select
           name="method"
-          className="bg-[#fbf0df] text-[#1a1a1a] py-1.5 px-3 rounded-lg font-bold text-sm min-w-[0px] appearance-none cursor-pointer hover:bg-[#f3d5a3] transition-colors duration-100"
+          className="min-w-[0px] cursor-pointer appearance-none rounded-sm border border-border bg-input px-3 py-1.5 text-sm font-bold text-foreground transition-colors hover:bg-accent"
         >
           <option value="GET" className="py-1">
             GET
@@ -42,12 +42,12 @@ export function APITester() {
           type="text"
           name="endpoint"
           defaultValue="/api/hello"
-          className="w-full flex-1 bg-transparent border-0 text-[#fbf0df] font-mono text-base py-1.5 px-2 outline-none focus:text-white placeholder-[#fbf0df]/40"
+          className="w-full flex-1 border-0 bg-transparent px-2 py-1.5 font-mono text-base text-foreground outline-none placeholder:text-muted-foreground focus:text-white"
           placeholder="/api/hello"
         />
         <button
           type="submit"
-          className="bg-[#fbf0df] text-[#1a1a1a] border-0 px-5 py-1.5 rounded-lg font-bold transition-all duration-100 hover:bg-[#f3d5a3] hover:-translate-y-px cursor-pointer whitespace-nowrap"
+          className="cursor-pointer whitespace-nowrap rounded-sm border border-transparent bg-primary px-5 py-1.5 font-bold text-primary-foreground transition-colors hover:bg-primary/90"
         >
           Send
         </button>
@@ -56,7 +56,7 @@ export function APITester() {
         ref={responseInputRef}
         readOnly
         placeholder="Response will appear here..."
-        className="w-full min-h-[140px] bg-[#1a1a1a] border-2 border-[#fbf0df] rounded-xl p-3 text-[#fbf0df] font-mono resize-y focus:border-[#f3d5a3] placeholder-[#fbf0df]/40"
+        className="min-h-[140px] w-full resize-y rounded-sm border border-border bg-card p-3 font-mono text-foreground placeholder:text-muted-foreground focus:border-ring"
       />
     </div>
   );

@@ -45,6 +45,9 @@ export type StreamMetrics = {
   progress: string | null;
   warnings: number;
   errors: number;
+  audioWarnings: number;
+  audioErrors: number;
+  lastAudioIssue: string | null;
   lastProgressAt: string | null;
 };
 

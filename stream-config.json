@@ -9,8 +9,8 @@
   },
   "streams": [
     {
-      "id": "lens",
-      "name": "lens",
+      "id": "zzz",
+      "name": "zzz",
       "inputKind": "device",
       "inputPath": "0:1",
       "inputLabel": "MacBook Pro Camera + MacBook Pro Microphone",
@@ -21,7 +21,7 @@
         "audioId": "1",
         "audioName": "MacBook Pro Microphone"
       },
-      "outputSubdir": "lens",
+      "outputSubdir": "zzz",
       "manifestName": "manifest.mpd",
       "segmentDuration": 2,
       "encoding": {
@@ -29,16 +29,16 @@
         "frameRate": 30,
         "outputWidth": 1280,
         "outputHeight": 720,
-        "videoBitrateKbps": 2500,
-        "videoMinrateKbps": 1750,
-        "videoMaxrateKbps": 3000,
-        "videoBufsizeKbps": 6000,
+        "videoBitrateKbps": 4000,
+        "videoMinrateKbps": 3000,
+        "videoMaxrateKbps": 4800,
+        "videoBufsizeKbps": 9600,
         "audioBitrateKbps": 128,
         "x264Preset": "veryfast"
       },
       "storageTarget": "local",
-      "createdAt": "2026-05-23T21:06:38.390Z",
-      "updatedAt": "2026-05-23T21:06:38.390Z"
+      "createdAt": "2026-05-24T05:44:50.358Z",
+      "updatedAt": "2026-05-24T05:44:50.358Z"
     }
   ]
 }

@@ -16,11 +16,11 @@ export default function StatusPill({ status }: { status: StreamStatus }) {
       ? "bg-red-500 text-white"
       : status === "failed"
         ? "bg-amber-500 text-black"
-        : "bg-zinc-200 text-zinc-800";
+        : "bg-zinc-700 text-zinc-200";
 
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded px-2 py-1 text-xs font-medium ${tone}`}
+      className={`inline-flex items-center gap-1 rounded-sm px-2 py-1 text-xs font-medium ${tone}`}
     >
       <Circle className="size-2 fill-current" />
       {statusLabels[status]}

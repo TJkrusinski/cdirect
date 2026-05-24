@@ -104,7 +104,7 @@ export function describeMediaError(error: MediaError | null) {
 }
 
 export const diagnosticTone: Record<DiagnosticLevel, string> = {
-  info: "border-zinc-200 bg-zinc-50 text-zinc-700",
-  warning: "border-amber-200 bg-amber-50 text-amber-900",
-  error: "border-red-200 bg-red-50 text-red-900",
+  info: "border-zinc-700 bg-zinc-900/70 text-zinc-200",
+  warning: "border-amber-500/35 bg-amber-500/10 text-amber-200",
+  error: "border-red-500/35 bg-red-500/10 text-red-200",
 };

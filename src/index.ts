@@ -78,6 +78,9 @@ type StreamMetrics = {
   progress: string | null;
   warnings: number;
   errors: number;
+  audioWarnings: number;
+  audioErrors: number;
+  lastAudioIssue: string | null;
   lastProgressAt: string | null;
 };
 
@@ -119,6 +122,9 @@ const defaultMetrics = (): StreamMetrics => ({
   progress: null,
   warnings: 0,
   errors: 0,
+  audioWarnings: 0,
+  audioErrors: 0,
+  lastAudioIssue: null,
   lastProgressAt: null,
 });
 
@@ -215,8 +221,22 @@ const appendLog = (state: RuntimeState, line: string) => {
   const clean = line.trim();
   if (!clean) return;
 
-  if (/(\berror\b|failed|invalid|unable to)/i.test(clean)) state.metrics.errors += 1;
-  else if (/\b(warning|deprecated)\b/i.test(clean)) state.metrics.warnings += 1;
+  const isError = /(\berror\b|failed|invalid|unable to|non-monotonous|underflow)/i.test(clean);
+  const isWarning =
+    !isError && /\b(warning|deprecated|queue input is backward|timestamp|dts|pts)\b/i.test(clean);
+  const isAudioIssue =
+    /(audio|aac|aresample|sample|avfoundation.*audio|non-monotonous|timestamp|dts|pts|underflow|clipping|compensat|async)/i.test(
+      clean,
+    );
+
+  if (isError) state.metrics.errors += 1;
+  else if (isWarning) state.metrics.warnings += 1;
+
+  if (isAudioIssue && (isError || isWarning)) {
+    if (isError) state.metrics.audioErrors += 1;
+    else state.metrics.audioWarnings += 1;
+    state.metrics.lastAudioIssue = clean;
+  }
 
   state.logs.push(clean);
   if (state.logs.length > 120) state.logs.splice(0, state.logs.length - 120);
@@ -842,6 +862,7 @@ async function startStream(id: string) {
   const liveGopSize = String(
     Math.max(1, Math.round(config.segmentDuration * config.encoding.frameRate)),
   );
+  const manifestUpdatePeriod = String(Math.max(1, Math.floor(config.segmentDuration / 2)));
   const videoTimingArgs =
     config.inputKind === "device" && config.deviceInput?.videoId
       ? [
@@ -931,6 +952,8 @@ async function startStream(id: string) {
     "dash",
     "-seg_duration",
     String(config.segmentDuration),
+    "-update_period",
+    manifestUpdatePeriod,
     "-use_template",
     "1",
     "-use_timeline",

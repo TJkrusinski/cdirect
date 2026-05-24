@@ -72,7 +72,7 @@ export default function EncodingSpeedDiagnostic({ stream }: { stream: Configured
         : "bg-emerald-500";
 
   return (
-    <div className={`mt-4 rounded-md border p-4 ${diagnosticTone[diagnostic.level]}`}>
+    <div className={`mt-4 rounded-sm border p-4 ${diagnosticTone[diagnostic.level]}`}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <div className="flex items-center gap-2 text-sm font-semibold">
@@ -94,8 +94,8 @@ export default function EncodingSpeedDiagnostic({ stream }: { stream: Configured
         </div>
       </div>
 
-      <div className="mt-4 h-2 overflow-hidden rounded bg-white/70">
-        <div className={`h-full rounded ${barTone}`} style={{ width: `${barWidth}%` }} />
+      <div className="mt-4 h-2 overflow-hidden rounded-sm bg-black/35">
+        <div className={`h-full rounded-sm ${barTone}`} style={{ width: `${barWidth}%` }} />
       </div>
 
       <div className="mt-3 grid gap-2 text-xs sm:grid-cols-4">
